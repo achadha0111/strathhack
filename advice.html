@@ -7,9 +7,21 @@ var RPI = 0.0125;
 //get user from db
 function getUser(userId)
 {
-	//do stuff to get the user
-	//return {interest:3554, debt:3043};
-	return {income:20000, paymentRate:0.08, debt:30000, interest:0.03, endYear:2030};
+	var bookId = '589f5c6afe584704004f7a41';
+	var baseUrl = 'https://api.fieldbook.com/v1/' + bookId;
+	var options = {
+		headers: {accept: 'application/json'},
+	};
+	var url = baseUrl + '/loaners/' + userId;
+	
+	var xmlHttp = new XMLHttpRequest();
+	xmlHttp.open("GET", url, false);
+	xmlHttp.send(null);
+	var resObj = JSON.parse(xmlHttp.responseText);
+	//adjust for threeshold
+	resObj.annual_income = (resObj.annual_income >= 21000) ? resObj.annual_income - 21000 : 0;
+	return {income:resObj.annual_income, paymentRate:0.09, debt:resObj.debt,
+	       	interest:resObj.interestrate, endYear:resObj.endyear};
 }
 
 //get years to pay back
@@ -61,10 +73,10 @@ function compare(user, cheapest, newPayment)
 	return newTotal - cheapest;
 }
 
-var test = getUser(1);
+var test = getUser(2);
 var cheapestOption = (debtSim(test)[0] > test.debt) ? test.debt : debtSim(test)[0];
 alert(cheapestOption);
-alert(compare(test, 30000, 200));
+alert(compare(test, 27000, 0));
 </script>
 	</body>
 	</html>
