@@ -1,0 +1,70 @@
+<html>
+<body>
+	<script type="text/javascript">
+var payBackCutoff = 30;
+var RPI = 0.0125;
+
+//get user from db
+function getUser(userId)
+{
+	//do stuff to get the user
+	//return {interest:3554, debt:3043};
+	return {income:20000, paymentRate:0.08, debt:30000, interest:0.03, endYear:2030};
+}
+
+//get years to pay back
+function getYears(user)
+{
+	return user.endYear - new Date().getFullYear();
+}
+
+
+//simulate debts till end
+function debtSim(user, additionalPayment)
+{
+	var years = getYears(user);
+	var yearlyPayment = user.income * (1 + user.paymentRate) + additionalPayment;
+	var amountPaid = 0;
+	var yearsPaid = 0;
+	var debtBackup = user.debt;
+	for(i = 0; i < years; i++)
+	{
+		if(user.debt >= yearlyPayment)
+		{
+			user.debt -= yearlyPayment;
+			amountPaid += yearlyPayment;
+		}else{
+			amountPaid += user.debt;
+			user.debt = 0;
+		}
+		yearsPaid++;
+		user.debt = user.debt * (1 + user.interest + RPI);
+		if(user.debt == 0)
+			break;
+	}
+	user.debt = debtBackup;
+	return [amountPaid, yearsPaid];
+}
+
+
+//indicates whether user should pay anything at all
+function payAtAll(user)
+{
+	return debtSim(user)[0] > user.debt; 
+}
+
+//indicates whether new option is more or less expensive
+//negative number indicates its cheaper
+function compare(user, cheapest, newPayment)
+{
+	var newTotal = debtSim(user, newPayment)[0];
+	return newTotal - cheapest;
+}
+
+var test = getUser(1);
+var cheapestOption = (debtSim(test)[0] > test.debt) ? test.debt : debtSim(test)[0];
+alert(cheapestOption);
+alert(compare(test, 30000, 200));
+</script>
+	</body>
+	</html>
