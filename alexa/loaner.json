@@ -1,0 +1,123 @@
+[
+  {
+    "id": 1,
+    "record_url": "https://fieldbook.com/records/589f5fb721dcf60400914587",
+    "userid": "1",
+    "endyear": 2046,
+    "debt": 27000,
+    "annualincome": 20000,
+    "threshold": 21000,
+    "interestrate": 1,
+    "field_9": null
+  },
+  {
+    "id": 2,
+    "record_url": "https://fieldbook.com/records/589f60ceb14b3004005a1f1b",
+    "userid": "2",
+    "endyear": 2044,
+    "debt": 20697,
+    "annualincome": 25000,
+    "threshold": 21000,
+    "interestrate": 0,
+    "field_9": null
+  },
+  {
+    "id": 3,
+    "record_url": "https://fieldbook.com/records/589f6389b14b3004005a1f20",
+    "userid": "3",
+    "endyear": 2036,
+    "debt": 9100,
+    "annualincome": 78000,
+    "threshold": 17495,
+    "interestrate": "3.2",
+    "field_9": null
+  },
+  {
+    "id": 4,
+    "record_url": "https://fieldbook.com/records/589f638bce5d090400af777c",
+    "userid": "4",
+    "endyear": 2035,
+    "debt": 1203.45,
+    "annualincome": 93000,
+    "threshold": 17495,
+    "interestrate": "0.6",
+    "field_9": null
+  },
+  {
+    "id": 5,
+    "record_url": "https://fieldbook.com/records/589f638cdcd2bd040068f40f",
+    "userid": "5",
+    "endyear": 2042,
+    "debt": 19858,
+    "annualincome": 23000,
+    "threshold": 17495,
+    "interestrate": "2.15",
+    "field_9": null
+  },
+  {
+    "id": 6,
+    "record_url": "https://fieldbook.com/records/589f638c6228a40400497c64",
+    "userid": "6",
+    "endyear": 2037,
+    "debt": 15987,
+    "annualincome": 43000,
+    "threshold": 17495,
+    "interestrate": "1.6",
+    "field_9": null
+  },
+  {
+    "id": 7,
+    "record_url": "https://fieldbook.com/records/589f638d3a14cf0400a0708d",
+    "userid": "7",
+    "endyear": 2044,
+    "debt": 19885,
+    "annualincome": 26000,
+    "threshold": 21000,
+    "interestrate": "1.3",
+    "field_9": null
+  },
+  {
+    "id": 8,
+    "record_url": "https://fieldbook.com/records/589f68316c1c0d0400e5d95e",
+    "userid": "8",
+    "endyear": 2040,
+    "debt": 14998,
+    "annualincome": 31000,
+    "threshold": 17495,
+    "interestrate": "2.9",
+    "field_9": null
+  },
+  {
+    "id": 9,
+    "record_url": "https://fieldbook.com/records/589f6831723cbd040029bc8b",
+    "userid": "9",
+    "endyear": 2045,
+    "debt": 28125,
+    "annualincome": 20850,
+    "threshold": 20000,
+    "interestrate": 0,
+    "field_9": null
+  },
+  {
+    "id": 10,
+    "record_url": "https://fieldbook.com/records/589f6833d501bc04006542e2",
+    "userid": "10",
+    "endyear": 2041,
+    "debt": 23985,
+    "annualincome": 35000,
+    "threshold": 17495,
+    "interestrate": "1.8",
+    "field_9": null
+  },
+  {
+    "id": 11,
+    "record_url": "https://fieldbook.com/records/589f73ba723cbd040029bc9d",
+    "userid": "Loaner 11",
+    "endyear": null,
+    "debt": null,
+    "annualincome": null,
+    "threshold": null,
+    "interestrate": "2.2",
+    "field_9": null
+  }
+]
