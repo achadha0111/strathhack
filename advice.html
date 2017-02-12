@@ -19,7 +19,7 @@ function getUser(userId)
 	xmlHttp.send(null);
 	var resObj = JSON.parse(xmlHttp.responseText);
 	//adjust for threeshold
-	resObj.annual_income = (resObj.annual_income >= 21000) ? resObj.annual_income - 21000 : 0;
+	resObj.annual_income = (resObj.annual_income >= resObj.treshold) ? resObj.annual_income - resObj.treshold : 0;
 	return {income:resObj.annual_income, paymentRate:0.09, debt:resObj.debt,
 	       	interest:resObj.interestrate, endYear:resObj.endyear};
 }
