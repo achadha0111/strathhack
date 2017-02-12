@@ -1,0 +1,24 @@
+{
+  "name": "text_messaging",
+  "version": "1.0.0",
+  "description": "A Twilio/NLP text interface for Student Loan Company",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/achadha0111/strathhack.git"
+  },
+  "keywords": [
+    "twilio",
+    "echo",
+    "finance"
+  ],
+  "author": "Aayush Chadha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/achadha0111/strathhack/issues"
+  },
+  "homepage": "https://github.com/achadha0111/strathhack#readme"
+}
