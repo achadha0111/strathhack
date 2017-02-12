@@ -10,7 +10,11 @@ const client = require('twilio')(accountSid, authToken)
 const recast = require('recastai')
 const recastClient = new recast.Client('a0946e041c196c34e7eef0743dc706f3', 'en')
 const app = express()
+const fuzzy = require('fuzzy')
 
+var options = {
+    extract: function(el) {return el.loantype}
+}
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
@@ -46,7 +50,7 @@ app.post('/', (req, res) => {
                         
                     } 
                     else if (!error && debt_query) {
-                        message = "You currently owe " + obj.debt +  " pounds."
+                        message = "You currently owe " + obj.debt +  " pounds. At current rate, as per our calculations, your loan will be paid after " + (user.endyear -new Date().getFullYear())
                     }
 
                     if (message != "") {
@@ -58,7 +62,22 @@ app.post('/', (req, res) => {
             }
 
             else if(intent == 'getinformation') {
-                
+              request(baseUrl + '/loan_info/', function(error, response, body) {
+                if(!error && loan_category) {
+                    var obj = JSON.parse(body)
+                    results = _.find(obj, {loantype: loan_category.raw})
+                    console.log(results)
+                    message = results.details
+                    
+                }
+
+                else {
+                    message = "Sorry, couldn't find any information on that"
+                }
+                twiml.message(message)
+                res.writeHead(200, {'Content-Type': 'text/xml'})
+                res.end(twiml.toString())
+              })  
             }
 		 	
     	
